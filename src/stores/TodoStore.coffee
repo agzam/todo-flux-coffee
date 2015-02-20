@@ -16,14 +16,12 @@ create = (text) ->
 update = (id, updates) -> _todos[id] = assign {}, _todos[id], updates
 
 updateAll = (updates) ->
-  debugger
   for id in _todos
     update id, updates
 
-destroy = (id) -> debugger; delete _todos[id]
+destroy = (id) -> delete _todos[id]
 
 destroyCompleted = ->
-  debugger
   for id in _todos
     destroy id if _todos[id].complete
 

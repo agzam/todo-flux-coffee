@@ -8,14 +8,12 @@ TodoActions =
       text: text
 
   updateText: (id, text) ->
-    debugger
     AppDispatcher.dispatch
       actionType: TodoConstants.TODO_UPDATE_TEXT
       id: id
       text: text
 
   toggleComplete: (todo) ->
-    debugger
     id = todo.id
     if todo.complete
       AppDispatcher.dispatch
@@ -29,11 +27,10 @@ TodoActions =
   toggleCompleteAll: -> AppDispatcher.dispatch actionType: TodoConstants.TODO_TOGGLE_COMPLETE_ALL
 
   destroy: (id) ->
-    debugger
     AppDispatcher.dispatch
       actionType: TodoConstants.TODO_DESTROY
       id: id
 
-  destroyCompleted: -> debugger; AppDispatcher.dispatch actionType: TodoConstants.TODO_DESTROY_COMPLETED
+  destroyCompleted: -> AppDispatcher.dispatch actionType: TodoConstants.TODO_DESTROY_COMPLETED
 
 module.exports = TodoActions
