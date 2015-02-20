@@ -1,36 +1,39 @@
-AppDispatcher = require \../dispatcher/AppDispatcher
-TodoConstants = require \../constants/TodoConstants
+AppDispatcher = require '../dispatcher/AppDispatcher'
+TodoConstants = require '../constants/TodoConstants'
 
 TodoActions =
   create: (text) ->
-    AppDispatcher.dispatch(
+    AppDispatcher.dispatch
       actionType: TodoConstants.TODO_CREATE
       text: text
-    )
+
   updateText: (id, text) ->
-    AppDispatcher.dispatch(
+    debugger
+    AppDispatcher.dispatch
       actionType: TodoConstants.TODO_UPDATE_TEXT
       id: id
       text: text
-    )
+
   toggleComplete: (todo) ->
+    debugger
     id = todo.id
     if todo.complete
-      AppDispatcher.dispatch(
+      AppDispatcher.dispatch
         actionType: TodoConstants.TODO_UNDO_COMPLETE
         id: id
-      )
     else
-      AppDispatcher.dispatch(
+      AppDispatcher.dispatch
         actionType: TodoConstants.TODO_COMPLETE
         id: id
-      )
+
   toggleCompleteAll: -> AppDispatcher.dispatch actionType: TodoConstants.TODO_TOGGLE_COMPLETE_ALL
+
   destroy: (id) ->
-    AppDispatcher.dispatch(
+    debugger
+    AppDispatcher.dispatch
       actionType: TodoConstants.TODO_DESTROY
       id: id
-    )
-  destroyCompleted: -> AppDispatcher.dispatch actionType: TodoConstants.TODO_DESTROY_COMPLETED
+
+  destroyCompleted: -> debugger; AppDispatcher.dispatch actionType: TodoConstants.TODO_DESTROY_COMPLETED
 
 module.exports = TodoActions

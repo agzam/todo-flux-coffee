@@ -1,9 +1,9 @@
-React = require \react
-TodoActions = require \../actions/TodoActions
+React = require 'react'
+TodoActions = require '../actions/TodoActions'
 
 ReactPropTypes = React.PropTypes
 
-Footer = React.createClass (
+Footer = React.createClass
   propTypes:  allTodos: ReactPropTypes.object.isRequired
   render: ->
     allTodos = @.props.allTodos
@@ -18,16 +18,15 @@ Footer = React.createClass (
     itemsLeftPhrase += 'left'
 
     # Undefined and thus not rendered if no completed items are left.
-    clearCompletedButton
+    clearCompletedButton = undefined
     if completed
-      clearCompletedButton = ``
-        <button
-          id="clear-completed"
-          onClick={this._onClearCompletedClick}>
-          Clear completed ({completed})
-        </button>``
+      clearCompletedButton = `<button
+                                id="clear-completed"
+                                onClick={this._onClearCompletedClick}>
+                                Clear completed ({completed})
+                              </button>`
 
-    return ``<footer id="footer">
+    return `<footer id="footer">
                <span id="todo-count">
                  <strong>
                    {itemsLeft}
@@ -35,8 +34,8 @@ Footer = React.createClass (
                  {itemsLeftPhrase}
                </span>
                {clearCompletedButton}
-            </footer>``
+            </footer>`
 
-  _onClearCompletedClick: -> TodoActions.destroyCompleted!
-)
+  _onClearCompletedClick: -> TodoActions.destroyCompleted
+
 module.exports = Footer

@@ -1,9 +1,9 @@
-React = require \react
-TodoActions = require \../actions/TodoActions
-TodoItem = require \./TodoItem.react
+React = require 'react'
+TodoActions = require '../actions/TodoActions'
+TodoItem = require './TodoItem.react'
 ReactPropTypes = React.PropTypes
 
-MainSection = React.createClass(
+MainSection = React.createClass
   propTypes:
     allTodos: ReactPropTypes.object.isRequired
     areAllComplete: ReactPropTypes.bool.isRequired
@@ -17,9 +17,9 @@ MainSection = React.createClass(
     todos = []
 
     for key of allTodos
-      todos.push ``<TodoItem key={key} todo={allTodos[key]} />``
+      todos.push `<TodoItem key={key} todo={allTodos[key]} />`
 
-    return ``<section id="main">
+    return `<section id="main">
                <input
                   id="toggle-all"
                   type="checkbox"
@@ -28,12 +28,12 @@ MainSection = React.createClass(
                />
                <label htmlFor="toggle-all">Mark all as complete</label>
                <ul id="todo-list">{todos}</ul>
-             </section>``
+             </section>`
 
-  /**
+  ###
    * Event handler to mark all TODOs as complete
-   */
-  _onToggleCompleteAll: -> TodoActions.toggleCompleteAll!
-)
+   ###
+  _onToggleCompleteAll: -> TodoActions.toggleCompleteAll()
+
 module.exports = MainSection
 

@@ -1,4 +1,4 @@
-keyMirror = require \keymirror
+keyMirror = require 'keymirror'
 
 module.exports = keyMirror(
   TODO_CREATE: null

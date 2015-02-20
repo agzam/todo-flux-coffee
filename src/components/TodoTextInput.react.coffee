@@ -1,8 +1,8 @@
-React = require \react
+React = require 'react'
 ReactPropTypes = React.PropTypes
-const ENTER_KEY_CODE = 13
+ENTER_KEY_CODE = 13
 
-TodoTextInput = React.createClass(
+TodoTextInput = React.createClass
   propTypes:
     className: ReactPropTypes.string
     id: ReactPropTypes.string
@@ -10,10 +10,10 @@ TodoTextInput = React.createClass(
     onSave: ReactPropTypes.func.isRequired
     value: ReactPropTypes.string
 
-  getInitialState: -> value: this.props.value or ''
+  getInitialState: -> value: @.props.value or ''
 
   render: ->
-    return ``<input
+    return `<input
                 className={this.props.className}
                 id={this.props.id}
                 placeholder={this.props.placeholder}
@@ -22,7 +22,7 @@ TodoTextInput = React.createClass(
                 onKeyDown={this._onKeyDown}
                 value={this.state.value}
                 autoFocus={true}
-            />``
+            />`
 
   _save: ->
     @.props.onSave @.state.value
@@ -30,6 +30,10 @@ TodoTextInput = React.createClass(
 
   _onChange: (event) -> @.setState value: event.target.value
 
-  _onKeyDown: (event) -> @._save! if event.keyCode is ENTER_KEY_CODE
-)
+  _onKeyDown: (event) -> @._save() if event.keyCode is ENTER_KEY_CODE
+
 module.exports = TodoTextInput
+
+
+
+
